@@ -8,7 +8,9 @@ import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  const { loading, data } = useQuery(GET_ME);
+  const { loading, error: qError, data } = useQuery(GET_ME);
+  console.log(`🚀 ~ file: SavedBooks.js ~ line 12 ~ SavedBooks ~ qError`, qError);
+  console.log(`🚀 ~ file: SavedBooks.js ~ line 12 ~ SavedBooks ~ data`, data);
   const [removeBook, { error }] = useMutation(REMOVE_BOOK);
 
   const userData = data?.me || [];
@@ -39,7 +41,7 @@ const SavedBooks = () => {
 
   // if data isn't here yet, say so
   if (loading) {
-    return <h2>LOADING...</h2>;
+    return <h2>LOADING...</h2>
   }
 
   return (
