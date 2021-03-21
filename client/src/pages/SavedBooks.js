@@ -9,8 +9,7 @@ import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
   const { loading, error: qError, data } = useQuery(GET_ME);
-  console.log(`🚀 ~ file: SavedBooks.js ~ line 12 ~ SavedBooks ~ qError`, qError);
-  console.log(`🚀 ~ file: SavedBooks.js ~ line 12 ~ SavedBooks ~ data`, data);
+
   const [removeBook, { error }] = useMutation(REMOVE_BOOK);
 
   const userData = data?.me || [];
